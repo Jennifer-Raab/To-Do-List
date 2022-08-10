@@ -8,10 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul>
-        <li><input type="text"><button></button>
-        </li>
-    </ul>
+    <h1>To Do Liste</h1>
+    <div id="todo-input">
+        <input id="input-line" type="text">
+        <button id="todo-btn">Bestätigen</button>
+    </div>
+    <table id="todo-list">
+        <tr class="note-row">
+            <td class="check-btn"><i class="fa-solid fa-check"></i></td>
+            <td class="note">Notiz</td>
+            <td class="edit-btn"><i class="fa-solid fa-pen"></i></td>
+            <td class="delete-btn"><i class="fa-solid fa-trash"></i></td>
+        </tr>
+        <tr class="note-row">
+            <td class="check-btn"><i class="fa-solid fa-check"></i></td>
+            <td class="note">Notiz</td>
+            <td class="edit-btn"><i class="fa-solid fa-pen"></i></td>
+            <td class="delete-btn"><i class="fa-solid fa-trash"></i></td>
+        </tr>
+    </table>
     <script src="index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/95e8dce4e7.js"
+      crossorigin="anonymous"
+    ></script>
 </body>
 </html>

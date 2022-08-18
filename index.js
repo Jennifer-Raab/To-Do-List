@@ -8,17 +8,6 @@ let notes = [];
 // Find a <table> element with id="myTable":
 let table = document.getElementById("todo-list");
 
-// Create an empty <tr> element and add it to the 1st position of the table:
-// let row = table.insertRow();
-
-
-// Insert new cells (<td> elements) 
-// let cell1 = row.insertCell(0);
-// let cell2 = row.insertCell(1);
-// let cell3 = row.insertCell(2);
-// let cell4 = row.insertCell(3);
-
-
 //Add EventListener, wenn der Bestätigungsbutton gedrückt wird
 addBtn.addEventListener('mouseup', addTodo)
 
@@ -62,53 +51,17 @@ function addTodo(){
         deleteBtn.addEventListener('click', () => {
             row.remove()
         })
-
+        // Insert check Button
         cell1.innerHTML = '<button><i class="fa-solid fa-check"></i></button>';
         notes.unshift(input.value);
         console.log(notes);
+        //Insert Input Value
         cell2.innerHTML = input.value;
+        //Clear Input Value
         input.value = '';
-        // cell3.innerHTML = '<button><i class="fa-solid fa-pen"></i></button>';
+        //Append Buttons 
         cell3.appendChild(editBtn)
         cell4.appendChild(deleteBtn)
     }
 }
 
-//  create  Element
-//document.createElement()
-// createElement(tagName)
-// createElement(tagName, options)
-// function addElement () {
-//     // create a new div element
-//     const newDiv = document.createElement("div");
-  
-//     // and give it some content
-//     const newContent = document.createTextNode("Hi there and greetings!");
-  
-//     // add the text node to the newly created div
-//     newDiv.appendChild(newContent);
-  
-//     // add the newly created element and its content into the DOM
-//     const currentDiv = document.getElementById("div1");
-//     document.body.insertBefore(newDiv, currentDiv);
-//   }
-
-// You can't use only createElement() function to create table, tr, td to create whole table element.
-
-// Instead you have to use insertRow(), insertCell() function of table Object
-
-// tb = document.createElement("tbody")  
-// var tbody  = document.createElement('tbody'); 
-// table.appendChild(tbody);
-// var table_row  = document.createElement('tr'); 
-// tbody.appendChild(table_row)// 
-
-// var ele = document.getElementById('content');
-//   var table = document.createElement('table');
-//   ele.appendChild(table);
-//   var tr = document.createElement('tr');
-//   table.appendChild(tr);
-//   var td = document.createElement('td');
-//   tr.appendChild(td);
-//   var txt = document.createTextNode('IE8');
-//   td.appendChild(txt);

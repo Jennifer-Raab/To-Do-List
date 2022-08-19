@@ -1,14 +1,12 @@
 //Defining Variables
 const addBtn = document.querySelector('#todo-btn');
 const input = document.querySelector('#input-line');
+const table = document.getElementById("todo-list");
 
 // Array mit den Noizen
 let notes = [];
 
-// Find a <table> element with id="myTable":
-let table = document.getElementById("todo-list");
-
-//Add EventListener, wenn der Bestätigungsbutton gedrückt wird
+//Add EventListener to Bestätigungs-Button
 addBtn.addEventListener('mouseup', addTodo)
 
 //Function for adding a Todo
@@ -17,6 +15,7 @@ function addTodo(){
     if(input.value === ''){
         alert('Please provide your next Todo');
     } else {
+        //Create Table-Row with 4 Cells
         const row = table.insertRow();
         row.className = 'note-row';
         const cell1 = row.insertCell(0);
@@ -28,6 +27,21 @@ function addTodo(){
         const cell4 = row.insertCell(3);
         cell4.className = 'delete-btn'
 
+        // Create check Button
+        const checkBtn = document.createElement('button')
+        checkBtn.innerHTML = '<i class="fa-solid fa-circle-dot"></i>';
+
+        checkBtn.addEventListener('click', () => {
+            if(checkBtn.innerHTML === '<i class="fa-solid fa-circle-check"></i>'){
+                checkBtn.innerHTML = '<i class="fa-solid fa-circle-dot"></i>'
+                cell2.style.color = 'initial'
+            } else {
+                checkBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
+                cell2.style.color = 'lightgrey'
+            }
+        })
+
+        //Create Edit-button
         const editBtn = document.createElement('button');
         editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
 
@@ -40,7 +54,7 @@ function addTodo(){
             const cell2Text = cell2.textContent
               console.log(cell2)
               console.log(cell2Text);
-              cell2.innerHTML = `<input value=${cell2Text} />`
+              cell2.innerHTML = `<input value="${cell2Text}" />`
               editBtn.textContent = `Bestatigen`
             }
         })
@@ -51,15 +65,16 @@ function addTodo(){
         deleteBtn.addEventListener('click', () => {
             row.remove()
         })
-        // Insert check Button
-        cell1.innerHTML = '<button><i class="fa-solid fa-check"></i></button>';
+
         notes.unshift(input.value);
-        console.log(notes);
+  
         //Insert Input Value
         cell2.innerHTML = input.value;
         //Clear Input Value
         input.value = '';
+        
         //Append Buttons 
+        cell1.appendChild(checkBtn)
         cell3.appendChild(editBtn)
         cell4.appendChild(deleteBtn)
     }
